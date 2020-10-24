@@ -46,7 +46,6 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
-  width: 400px;
   justify-content: space-between;
 }
 
@@ -96,4 +95,23 @@ button img {
   font-weight: bold;
   font-size: 32px;
   margin: 18px;
+}
+
+@media (max-width: 470px) {
+  .item-game {
+    padding: 21px 24px;
+  }
+
+  .table-items {
+    grid-gap: 28px 8px;
+  }
+
+  .table-result {
+    width: auto;
+  }
+
+  .vs {
+    margin: 0;
+    font-size: 24px;
+  }
 }

@@ -44,3 +44,9 @@
   font-weight: bold;
   color: black;
 }
+
+@media (max-width: 470px) {
+  .header {
+    margin-bottom: 30px;
+  }
+}
