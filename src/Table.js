@@ -24,7 +24,7 @@ const Table = () => {
     });
   };
 
-  //Setiando la imagen de la seleccion del Cpu
+  //Imagen de la seleccion del Cpu
   const getCpuImage = (cpu) => {
     switch (cpu) {
       case 1:
@@ -40,6 +40,8 @@ const Table = () => {
         break;
     }
   };
+
+  //Imagen de la seleccio del user
 
   const getUserImage = (user) => {
     switch (user) {
@@ -57,8 +59,9 @@ const Table = () => {
     }
   };
 
+  //Comienza el juego
   const startGame = async (e) => {
-    const userSelection = parseInt(e.target.value);
+    const userSelection = parseInt(e.target.name);
     setPlaying(true);
     getUserImage(userSelection);
     const cpuSelection = await launchHousePick();
@@ -67,22 +70,34 @@ const Table = () => {
 
   const winner = (user, cpu) => {
     if (user === 1 && cpu === 1) {
-      console.log("Empate, los dos eligieron piedra");
       setResult("Empate");
     }
     if (user === 1 && cpu === 2) {
-      console.log("Gana cpu, papel le gana a piedra");
       setResult("Perdiste");
     }
     if (user === 1 && cpu === 3) {
-      console.log("Gana user, piedra le gana a tijera");
       setResult("Ganaste");
       addScore(true);
     }
     if (user === 2 && cpu === 1) {
-      console.log("Gana user, papel le gana a piedra");
       setResult("Ganaste");
       addScore(true);
+    }
+    if (user === 2 && cpu === 2) {
+      setResult("Empate");
+    }
+    if (user === 2 && cpu === 3) {
+      setResult("Perdiste");
+    }
+    if (user === 3 && cpu === 1) {
+      setResult("Perdiste");
+    }
+    if (user === 3 && cpu === 2) {
+      setResult("Ganaste");
+      addScore(true);
+    }
+    if (user === 3 && cpu === 3) {
+      setResult("Empate");
     }
   };
 
@@ -95,22 +110,23 @@ const Table = () => {
     <div className="table">
       {!playing ? (
         <div className="table-items">
-          <button className="item-game rock" value="1" onClick={startGame}>
+          <button className="item-game rock" name="1" onClick={startGame}>
             <img
-              value="1"
+              name="1"
               src="https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-rock.svg"
               alt=""
             />
           </button>
-          <button className="item-game paper" value="2" onClick={startGame}>
+          <button className="item-game paper" name="2" onClick={startGame}>
             <img
-              value="2"
+              name="2"
               src="https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-paper.svg"
               alt=""
             />
           </button>
-          <button className="item-game scissors" value="3" onClick={startGame}>
+          <button className="item-game scissors" name="3" onClick={startGame}>
             <img
+              name="3"
               src="https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-scissors.svg"
               alt=""
             />
@@ -126,10 +142,12 @@ const Table = () => {
                 className={`item-game ${userImage}`}
                 onClick={startGame}
               >
-                <img
-                  src={`https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-${userImage}.svg`}
-                  alt=""
-                />
+                <div>
+                  <img
+                    src={`https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-${userImage}.svg`}
+                    alt=""
+                  />
+                </div>
               </button>
             </div>
             <p className="vs">Vs</p>

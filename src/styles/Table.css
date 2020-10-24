@@ -12,6 +12,10 @@
   background: white;
 }
 
+.item-game:disabled {
+  cursor: initial;
+}
+
 .item-game:active {
   transform: scale(0.9);
 }
