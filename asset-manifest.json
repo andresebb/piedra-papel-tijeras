@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/piedra-papel-tijeras/static/css/main.5379aedb.chunk.css",
+    "main.js": "/piedra-papel-tijeras/static/js/main.119df95c.chunk.js",
+    "main.js.map": "/piedra-papel-tijeras/static/js/main.119df95c.chunk.js.map",
+    "runtime-main.js": "/piedra-papel-tijeras/static/js/runtime-main.ba470535.js",
+    "runtime-main.js.map": "/piedra-papel-tijeras/static/js/runtime-main.ba470535.js.map",
+    "static/js/2.d211568a.chunk.js": "/piedra-papel-tijeras/static/js/2.d211568a.chunk.js",
+    "static/js/2.d211568a.chunk.js.map": "/piedra-papel-tijeras/static/js/2.d211568a.chunk.js.map",
+    "index.html": "/piedra-papel-tijeras/index.html",
+    "precache-manifest.faa9fe4a88ef6427087ae8c8ea33175b.js": "/piedra-papel-tijeras/precache-manifest.faa9fe4a88ef6427087ae8c8ea33175b.js",
+    "service-worker.js": "/piedra-papel-tijeras/service-worker.js",
+    "static/css/main.5379aedb.chunk.css.map": "/piedra-papel-tijeras/static/css/main.5379aedb.chunk.css.map",
+    "static/js/2.d211568a.chunk.js.LICENSE.txt": "/piedra-papel-tijeras/static/js/2.d211568a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba470535.js",
+    "static/js/2.d211568a.chunk.js",
+    "static/css/main.5379aedb.chunk.css",
+    "static/js/main.119df95c.chunk.js"
+  ]
+}
