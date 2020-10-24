@@ -9,6 +9,7 @@
   border-radius: 60%;
   cursor: pointer;
   outline: none;
+  background: white;
 }
 
 .item-game:active {
@@ -72,4 +73,23 @@
   letter-spacing: 4px;
   margin-bottom: 0px;
   color: #eeeeee;
+}
+
+button img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.election {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.vs {
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+  margin: 18px;
 }

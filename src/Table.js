@@ -1,40 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./styles/Table.css";
-import Piedra from "./images/icon-rock.svg";
-import Papel from "./images/icon-paper.svg";
-import Tijera from "./images/icon-scissors.svg";
+import { scoreContext } from "./Context";
 
 const Table = () => {
   const [playing, setPlaying] = useState(false);
   const [userImage, setUserImage] = useState();
   const [cpuImage, setCpuImage] = useState();
   const [result, setResult] = useState("");
+  const { addScore } = useContext(scoreContext);
 
-  const startGame = (e) => {
-    const userSelection = parseInt(e.target.value);
-    const cpuSelection = Math.floor(Math.random() * (4 - 1) + 1);
-    setPlaying(true);
+  //Se obtiene la eleccion de la cpu
+  const launchHousePick = () => {
+    return new Promise((resolve, reject) => {
+      let pick;
+      const intervel = setInterval(() => {
+        pick = Math.floor(Math.random() * (4 - 1) + 1);
+        getCpuImage(pick);
+      }, 100);
+      setTimeout(() => {
+        clearInterval(intervel);
+        resolve(pick);
+      }, 2000);
+    });
+  };
 
-    winner(userSelection, cpuSelection);
-    console.log(cpuSelection);
-
-    //Setiando la imagen de la seleccion del user
-    switch (userSelection) {
-      case 1:
-        setUserImage("rock");
-        break;
-      case 2:
-        setUserImage("paper");
-        break;
-      case 3:
-        setUserImage("scissors");
-        break;
-      default:
-        break;
-    }
-
-    //Setiando la imagen de la seleccion del Cpu
-    switch (cpuSelection) {
+  //Setiando la imagen de la seleccion del Cpu
+  const getCpuImage = (cpu) => {
+    switch (cpu) {
       case 1:
         setCpuImage("rock");
         break;
@@ -49,6 +41,30 @@ const Table = () => {
     }
   };
 
+  const getUserImage = (user) => {
+    switch (user) {
+      case 1:
+        setUserImage("rock");
+        break;
+      case 2:
+        setUserImage("paper");
+        break;
+      case 3:
+        setUserImage("scissors");
+        break;
+      default:
+        break;
+    }
+  };
+
+  const startGame = async (e) => {
+    const userSelection = parseInt(e.target.value);
+    setPlaying(true);
+    getUserImage(userSelection);
+    const cpuSelection = await launchHousePick();
+    winner(userSelection, cpuSelection);
+  };
+
   const winner = (user, cpu) => {
     if (user === 1 && cpu === 1) {
       console.log("Empate, los dos eligieron piedra");
@@ -61,10 +77,12 @@ const Table = () => {
     if (user === 1 && cpu === 3) {
       console.log("Gana user, piedra le gana a tijera");
       setResult("Ganaste");
+      addScore(true);
     }
     if (user === 2 && cpu === 1) {
       console.log("Gana user, papel le gana a piedra");
       setResult("Ganaste");
+      addScore(true);
     }
   };
 
@@ -101,19 +119,33 @@ const Table = () => {
       ) : (
         <>
           <div className="table-result">
-            <button className={`item-game ${userImage}`} onClick={startGame}>
-              <img
-                src={`https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-${userImage}.svg`}
-                alt=""
-              />
-            </button>
-            <p>Vs</p>
-            <button className={`item-game ${cpuImage}`} onClick={startGame}>
-              <img
-                src={`https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-${cpuImage}.svg`}
-                alt=""
-              />
-            </button>
+            <div>
+              <p className="election">Tu elegiste</p>
+              <button
+                disabled={true}
+                className={`item-game ${userImage}`}
+                onClick={startGame}
+              >
+                <img
+                  src={`https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-${userImage}.svg`}
+                  alt=""
+                />
+              </button>
+            </div>
+            <p className="vs">Vs</p>
+            <div>
+              <p className="election">La CPU eligio</p>
+              <button
+                disabled={true}
+                className={`item-game ${cpuImage}`}
+                onClick={startGame}
+              >
+                <img
+                  src={`https://leonidasesteban.github.io/rock-paper-scissors-react/images/icon-${cpuImage}.svg`}
+                  alt=""
+                />
+              </button>
+            </div>
           </div>
           <div>
             <h2 className="result">{result}</h2>

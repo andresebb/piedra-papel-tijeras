@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./styles/Header.css";
+import { scoreContext } from "./Context";
 
 const Header = () => {
+  const { score } = useContext(scoreContext);
   return (
     <>
       <div className="header">
@@ -13,7 +15,7 @@ const Header = () => {
           </div>
           <div className="header-score">
             <span>Score</span>
-            <h2>0</h2>
+            <h2>{score}</h2>
           </div>
         </div>
       </div>
