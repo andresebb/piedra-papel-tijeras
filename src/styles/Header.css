@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  border: 2px solid rgb(145, 145, 145);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 24px;
+}
+
+.header-options {
+  text-align: left;
+}
+
+.header-options h2 {
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-score {
+  text-align: center;
+  color: #969696;
+  padding: 0 24px;
+  border-radius: 8px;
+  background: white;
+}
+
+.header-score h2 {
+  font-size: 56px;
+  margin: 0;
+}
+
+.header-score span {
+  font-weight: bold;
+  color: black;
+}

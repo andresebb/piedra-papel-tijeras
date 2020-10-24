@@ -1,0 +1,75 @@
+.table {
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item-game {
+  padding: 34px 48px;
+  border-radius: 60%;
+  cursor: pointer;
+  outline: none;
+}
+
+.item-game:active {
+  transform: scale(0.9);
+}
+
+.item-game.rock {
+  border: 16px solid #516ef4;
+  box-shadow: 0px 5px 0px #1235d3;
+}
+.item-game.paper {
+  border: 16px solid #eca81e;
+  box-shadow: 0px 5px 0px #bb7d00;
+}
+
+.item-game.scissors {
+  border: 16px solid #de3a5a;
+  box-shadow: 0px 5px 0px #9e122e;
+  grid-column: span 2 / auto;
+}
+
+.table-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 36px;
+  justify-items: center;
+}
+
+.table-result {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.restar-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 38px;
+}
+
+.restar-button-container button {
+  padding: 16px 14px;
+  border-radius: 11px;
+  border: 1px solid #eaeaea;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1a294a;
+  outline: none;
+  cursor: pointer;
+}
+.restar-button-container button {
+  transform: scale(0.9);
+}
+
+.result {
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 4px;
+  margin-bottom: 0px;
+  color: #eeeeee;
+}
